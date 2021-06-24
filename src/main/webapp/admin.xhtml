@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Welcome admin</title>
+    </h:head>
+    <h:body>
+   
+    <h:dataTable value="#{productsManagedBean.productsList}" var="products">
+        <h:column>
+            <f:facet name="header">NAME</f:facet>
+                    #{products.productName}
+            </h:column>
+            <h:column>
+                <f:facet name="header">PRICE</f:facet>
+                 #{products.productPrice}
+            </h:column>
+        <h:column>
+                <f:facet name="header">QUANTITY</f:facet>
+                 #{products.quantity}
+            </h:column>
+            
+        </h:dataTable>
+        <br></br>
+     <h:form>  
+     <h:outputText value="Product name" />
+     <h:inputText value="#{productsManagedBean.name}"/>
+     <br></br><br></br>
+     <h:outputText value="Product price" />
+     <h:inputText value="#{productsManagedBean.price}"/>
+     <br></br><br></br>
+     <h:outputText value="Product quantity" />
+     <h:inputText value="#{productsManagedBean.pquantity}"/>
+     
+     
+     <br></br><br></br>
+     <h:commandButton value="Add" action="#{productsManagedBean.add(products.productId)}"/>
+     <br></br><br></br>
+     <h:commandButton value="Delete" action="#{productsManagedBean.delete(products.productId)}"/>
+     <br></br><br></br>
+     <h:commandButton value="Update" action="#{productsManagedBean.update(products.quantity)}"/>
+     <br></br><br></br>
+    </h:form>
+    </h:body>
+</html>
+
