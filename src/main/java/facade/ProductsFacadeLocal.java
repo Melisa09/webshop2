@@ -18,7 +18,7 @@ public interface ProductsFacadeLocal {
     Products find(Object id);
 
     List<Products> findAll();
-
+    
     List<Products> findRange(int[] range);
 
     int count();

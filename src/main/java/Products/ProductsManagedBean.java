@@ -13,6 +13,7 @@ import javax.inject.Named;
 @SessionScoped
 public class ProductsManagedBean implements Serializable {
 
+    private Integer productId;
     private String name;
     private int price;
     private int pquantity;
@@ -55,13 +56,15 @@ public class ProductsManagedBean implements Serializable {
         this.price = price;
     }
 
-    public int getQuantity() {
+    public int getPquantity() {
         return pquantity;
     }
 
-    public void setQuantity(int quantity) {
-        this.pquantity = quantity;
+    public void setPquantity(int pquantity) {
+        this.pquantity = pquantity;
     }
+
+    
 
 
     public List<Products> getProductsList() {
@@ -72,32 +75,41 @@ public class ProductsManagedBean implements Serializable {
         this._productsList = _productsList;
     }
 
-    public String add(int id) {
-        for (Products product : _productsList) {
-            if (!product.getProductName().equals(name) && !(product.getProductId() == id)) {
-                prod = new Products(name, price, pquantity);
-                productsFacadeLocal.create(prod);
-            }
-        }
-        return "user";
+    public Integer getProductId() {
+        return productId;
     }
 
-    public String delete(int id) {
+    public void setProductId(Integer productId) {
+        this.productId = productId;
+    }
 
-        System.out.println("....delete....");
-        Products product = productsFacadeLocal.find(id);
+    
+    
+    public String add() {
+  
+                Products product = new Products(name, price, pquantity);
+                productsFacadeLocal.create(product);
+                init();
+                return "user";
+    }
+
+    public String delete(Integer productId) {
+
+        Products product = productsFacadeLocal.find(productId);
         productsFacadeLocal.remove(product);
+        init();
         return "user";
 
     }
 
-    public String update(int quantity) {
+    public String update() {
 
-        System.out.println("....update....");
         for (Products product : _productsList) {
             if (product.getProductName().equals(name) && !(product.getQuantity() == pquantity)) {
                 Products produ = new Products(name, price, pquantity);
                 productsFacadeLocal.edit(produ);
+                init();
+                
 
             }
         }

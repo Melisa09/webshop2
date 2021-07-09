@@ -5,4 +5,5 @@
     <class>entity.Users</class>
     <class>entity.Products</class>
   </persistence-unit>
+  <property name="javax.persistence.validation.mode" value="none" />
 </persistence>

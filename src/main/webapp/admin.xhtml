@@ -24,24 +24,13 @@
             
         </h:dataTable>
         <br></br>
+        
      <h:form>  
-     <h:outputText value="Product name" />
-     <h:inputText value="#{productsManagedBean.name}"/>
+     <h:commandButton value="Add" action="add"/>
      <br></br><br></br>
-     <h:outputText value="Product price" />
-     <h:inputText value="#{productsManagedBean.price}"/>
+     <h:commandButton value="Delete" action="delete"/>
      <br></br><br></br>
-     <h:outputText value="Product quantity" />
-     <h:inputText value="#{productsManagedBean.pquantity}"/>
-     
-     
-     <br></br><br></br>
-     <h:commandButton value="Add" action="#{productsManagedBean.add(products.productId)}"/>
-     <br></br><br></br>
-     <h:commandButton value="Delete" action="#{productsManagedBean.delete(products.productId)}"/>
-     <br></br><br></br>
-     <h:commandButton value="Update" action="#{productsManagedBean.update(products.quantity)}"/>
-     <br></br><br></br>
+     <h:commandButton value="Update" action="update"/>
     </h:form>
     </h:body>
 </html>

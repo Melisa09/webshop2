@@ -9,23 +9,25 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.security.enterprise.credential.UsernamePasswordCredential;
 
 @Named(value = "usersManagedBean")
 @SessionScoped
+
 public class UsersManagedBean implements Serializable{
     
     private List<Users> _usersList;
     private String user;
     private String pass;
-    private int id;
+    private int idprivilege;    
     
     
-    @Inject
-    UsersFacadeLocal usersfacadelocal;
+  @Inject
+  UsersFacadeLocal usersFacadeLocal;
     
     @PostConstruct
     private void init(){
-        _usersList = usersfacadelocal.findAll();
+        _usersList = usersFacadeLocal.findAll();
     }
     
 public UsersManagedBean(){
@@ -56,27 +58,29 @@ public UsersManagedBean(){
         this.pass = pass;
     }
 
-    public int getId() {
-        return id;
+    public int getIdprivilege() {
+        return idprivilege;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdprivilege(int idprivilege) {
+        this.idprivilege = idprivilege;
     }
+
+    
 
     public String login(){
     
         for(Users logg : _usersList){
             if (user !=null && user.equals(logg .getUsername())){
                 if(pass!=null && pass.equals(logg.getPassword())){
-                    id = logg.getIdPrivilege();
+                    idprivilege = logg.getIdPrivilege();
                 }
             }
         }
         
-          if (id==1){
+          if (idprivilege==1){
               return "user";
-              }else if(id==2){
+              }else if(idprivilege==2){
              return "admin";
            }else{
             return "";
@@ -84,21 +88,19 @@ public UsersManagedBean(){
     }
     
     public String register(){ 
-    for(Users reg : _usersList){
-            if (!reg.getUsername().equals(user) && pass!=null ){
-                    pass = reg.getPassword();
-                if(id==1 || id==2){
-                 Users regu = new Users(user, pass, id);
-                usersfacadelocal.create(regu);
-            }
-        }
-        
-    }
-        return null;
-}
-}
+    Users users= new Users(user, pass, idprivilege);
+    users.setId(idprivilege);
+    users.setUsername(user);
+    users.setPassword(pass);
+    usersFacadeLocal.create(users);
+    return "index";
+   
+     
+     
 
-
+}
+    
+}
                 
 
 

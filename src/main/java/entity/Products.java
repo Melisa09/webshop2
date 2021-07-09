@@ -54,21 +54,14 @@ public class Products implements Serializable {
         this.productId = productId;
     }
 
-    public Products(Integer productId, String productName, int productPrice, int quantity) {
-        this.productId = productId;
+    public Products( String productName, int productPrice, int quantity) {
+        
         this.productName = productName;
         this.productPrice = productPrice;
         this.quantity = quantity;
     }
 
-    public Products(String name, int price) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public Products(String name, int price, int quantity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+  
     public Integer getProductId() {
         return productId;
     }
@@ -101,29 +94,10 @@ public class Products implements Serializable {
         this.quantity = quantity;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (productId != null ? productId.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Products)) {
-            return false;
-        }
-        Products other = (Products) object;
-        if ((this.productId == null && other.productId != null) || (this.productId != null && !this.productId.equals(other.productId))) {
-            return false;
-        }
-        return true;
-    }
 
     @Override
     public String toString() {
-        return "entity.Products[ productId=" + productId + " ]";
+        return productId + "";
     }
     
 }
