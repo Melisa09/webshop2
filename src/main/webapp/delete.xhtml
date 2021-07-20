@@ -1,14 +1,13 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
     <head>
-        <title>TODO supply a title</title>
+        <title>Brisanje proizvoda</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
-        <div>TODO write content</div>
+
      
      <h:form>
      <h:outputText value="Product name" />
@@ -21,7 +20,7 @@
      <h:inputText value="#{productsManagedBean.pquantity}"/>
      
      <br></br>
-     <h:commandButton value="Delete" action="#{productsManagedBean.delete(productId)}"/>
+     <h:commandButton value="Delete" action="#{productsManagedBean.delete(products.productId)}"/>
      </h:form>
     </body>
 </html>

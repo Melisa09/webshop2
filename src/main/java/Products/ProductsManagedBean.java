@@ -64,9 +64,6 @@ public class ProductsManagedBean implements Serializable {
         this.pquantity = pquantity;
     }
 
-    
-
-
     public List<Products> getProductsList() {
         return _productsList;
     }
@@ -83,14 +80,12 @@ public class ProductsManagedBean implements Serializable {
         this.productId = productId;
     }
 
-    
-    
     public String add() {
-  
-                Products product = new Products(name, price, pquantity);
-                productsFacadeLocal.create(product);
-                init();
-                return "user";
+
+        Products product = new Products(name, price, pquantity);
+        productsFacadeLocal.create(product);
+        init();
+        return "user";
     }
 
     public String delete(Integer productId) {
@@ -99,21 +94,5 @@ public class ProductsManagedBean implements Serializable {
         productsFacadeLocal.remove(product);
         init();
         return "user";
-
-    }
-
-    public String update() {
-
-        for (Products product : _productsList) {
-            if (product.getProductName().equals(name) && !(product.getQuantity() == pquantity)) {
-                Products produ = new Products(name, price, pquantity);
-                productsFacadeLocal.edit(produ);
-                init();
-                
-
-            }
-        }
-        return "user";
     }
 }
-
