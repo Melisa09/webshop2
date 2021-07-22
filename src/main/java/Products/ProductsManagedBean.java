@@ -85,7 +85,7 @@ public class ProductsManagedBean implements Serializable {
         Products product = new Products(name, price, pquantity);
         productsFacadeLocal.create(product);
         init();
-        return "user";
+        return "admin";
     }
 
     public String delete(Integer productId) {
@@ -93,6 +93,6 @@ public class ProductsManagedBean implements Serializable {
         Products product = productsFacadeLocal.find(productId);
         productsFacadeLocal.remove(product);
         init();
-        return "user";
+        return "admin";
     }
 }

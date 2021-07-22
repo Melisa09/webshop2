@@ -8,7 +8,7 @@
     </h:head>
     <h:body>
        
-        <h:dataTable value="#{productsManagedBean.productsList}" var="products">
+        <h:dataTable value="#{productsManagedBean.productsList}" var="products"  cellpadding="2" cellspacing="0" border="1">
             <h:column>
                 <f:facet name="header">NAME</f:facet>
                     #{products.productName}

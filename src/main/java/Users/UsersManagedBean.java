@@ -9,7 +9,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.security.enterprise.credential.UsernamePasswordCredential;
+
 
 @Named(value = "usersManagedBean")
 @SessionScoped
@@ -20,6 +20,7 @@ public class UsersManagedBean implements Serializable{
     private String user;
     private String pass;
     private int idprivilege;    
+    private String message = "";
     
     
   @Inject
@@ -93,10 +94,9 @@ public UsersManagedBean(){
     users.setUsername(user);
     users.setPassword(pass);
     usersFacadeLocal.create(users);
+    init();
     return "index";
-   
-     
-     
+
 
 }
     

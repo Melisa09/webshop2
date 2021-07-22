@@ -10,15 +10,15 @@
         <h:form>
 		<h3>REGISTER</h3>
 		<h:outputText value="Username" />
-		<h:inputText value="#{usersManagedBean.user}"/>
+		<h:inputText value="#{usersManagedBean.user}" required="true" requiredMessage="Korisničko ime je obavezno"/>
 		<br></br><br></br>
 		
 		<h:outputText value="Password" />
-		<h:inputSecret value="#{usersManagedBean.pass}"/>
+		<h:inputSecret value="#{usersManagedBean.pass}" required="true" requiredMessage="Password je obavezan"/>
 		<br></br><br></br>
                
                 <h:outputText value="Role ID" />
-		<h:inputText value="#{usersManagedBean.idprivilege}"/>
+		<h:inputText value="#{usersManagedBean.idprivilege}" required="true" requiredMessage="Role ID je obavezan"/>
 		<br></br><br></br>
                 
 		 <h:commandButton value="Register" action="#{usersManagedBean.register()}"/>

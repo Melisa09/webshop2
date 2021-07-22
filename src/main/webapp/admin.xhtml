@@ -4,32 +4,40 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Welcome admin</title>
+        <title>Welcome</title>
     </h:head>
     <h:body>
-   
-    <h:dataTable value="#{productsManagedBean.productsList}" var="products">
-        <h:column>
-            <f:facet name="header">NAME</f:facet>
+        <h:form>
+        <h:dataTable value="#{productsManagedBean.productsList}" var="products" cellpadding="2" cellspacing="0" border="1">
+            <h:column>
+                <f:facet name="header">NAME</f:facet>
                     #{products.productName}
             </h:column>
             <h:column>
                 <f:facet name="header">PRICE</f:facet>
                  #{products.productPrice}
             </h:column>
-        <h:column>
+           <h:column>
                 <f:facet name="header">QUANTITY</f:facet>
                  #{products.quantity}
             </h:column>
+            <h:column>
+                <h:commandButton value="Delete" action="#{productsManagedBean.delete(products.productId)}" />
+            </h:column>
             
         </h:dataTable>
-        <br></br>
-        
-     <h:form>  
-     <h:commandButton value="Add" action="add"/>
-     <br></br><br></br>
-     <h:commandButton value="Delete" action="delete"/>
+            
+   
+     <br></br>
+     <h:commandButton value="Add product" action="add" />
+          <br></br><br></br>
+      <h:commandButton value="Logout" action="index" />
     </h:form>
+      
+ 
     </h:body>
 </html>
 
+
+       
+        
